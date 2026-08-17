@@ -3,10 +3,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>인타바 — 폰을 내려놓고 운동하려고 만든 인터벌 타이머</title>
-<meta name="description" content="결제 화면이 없고, 음악을 안 줄이고, 운동이 끝나면 알아서 기록됩니다.">
+<meta name="description" content="타바타·HIIT·서킷 트레이닝용 인터벌 타이머. 화면을 보지 않아도 소리와 진동이 구간을 알려주고, 운동이 끝나면 기록이 자동으로 남습니다. 광고 없음, 앱 내 구입 없음, 로그인 없음.">
+<link rel="canonical" href="https://yunuchoiii.github.io/intava-pages/">
+<meta name="apple-itunes-app" content="app-id=6799622371">
 <link rel="icon" href="./icon.png">
 <link rel="apple-touch-icon" href="./icon.png">
 <meta name="theme-color" content="#17171C">
+<meta property="og:site_name" content="인타바">
 <meta property="og:type" content="website">
 <meta property="og:title" content="인타바 — 폰을 내려놓고 운동하려고 만든 인터벌 타이머">
 <meta property="og:description" content="결제 화면이 없고, 음악을 안 줄이고, 운동이 끝나면 알아서 기록됩니다.">
@@ -15,7 +18,42 @@
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://yunuchoiii.github.io/intava-pages/">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:image:alt" content="인타바 — 폰을 내려놓고 운동하려고 만든 인터벌 타이머">
 <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "인타바",
+  "alternateName": "intava",
+  "applicationCategory": "HealthApplication",
+  "applicationSubCategory": "인터벌 타이머",
+  "operatingSystem": "iOS 16.4 or later",
+  "url": "https://yunuchoiii.github.io/intava-pages/",
+  "downloadUrl": "https://apps.apple.com/kr/app/id6799622371",
+  "installUrl": "https://apps.apple.com/kr/app/id6799622371",
+  "image": "https://yunuchoiii.github.io/intava-pages/og.png",
+  "inLanguage": ["ko", "en", "ja", "zh-Hans"],
+  "description": "타바타·HIIT·서킷 트레이닝용 인터벌 타이머. 화면을 보지 않아도 소리와 진동이 구간을 알려주고, 운동이 끝나면 기록이 자동으로 남습니다.",
+  "featureList": [
+    "운동·휴식 구간을 소리와 진동으로 알림",
+    "앱을 종료해도 울리는 백그라운드 알림",
+    "음악 볼륨을 줄이지 않는 알림음",
+    "운동 기록 자동 저장 및 월 캘린더",
+    "루틴·서킷 구성과 라운드 반복"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Seowon Choi"
+  }
+}
+</script>
 
 <style>
 :root{
@@ -98,7 +136,7 @@ h1{margin:18px auto 0;font-size:32px;max-width:11.5em}
 .stage-cap strong{color:var(--text);font-weight:600}
 
 /* ---- features ---- */
-.features{padding:96px 0 0}
+.features{padding-top:96px}
 .sec-head{text-align:center;margin-bottom:44px}
 .sec-head h2{font-size:25px}
 .grid3{display:grid;gap:40px}
@@ -107,7 +145,7 @@ h1{margin:18px auto 0;font-size:32px;max-width:11.5em}
 .feat p{margin:10px 0 0;color:var(--sub);font-size:15.5px}
 
 /* ---- records proof ---- */
-.proof{padding:88px 0 0}
+.proof{padding-top:88px}
 .proof-grid{display:grid;gap:36px;align-items:center}
 .proof h2{font-size:25px}
 .proof .desc{margin:14px 0 0;color:var(--sub);font-size:16px}
@@ -163,7 +201,23 @@ footer p{margin:0 0 5px}
   .closing{padding:120px 0 88px}
   .closing h2{font-size:30px}
 }
+
+/* ---- 스크롤 등장 (JS·모션 허용일 때만) ---- */
+.anim .rv{opacity:0;transform:translateY(18px);
+  transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.anim .rv.in{opacity:1;transform:none}
+.anim .stage .phone{transform:translateY(26px) scale(.985);opacity:0;
+  transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.anim .stage .phone.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .anim .rv,.anim .stage .phone{opacity:1;transform:none;transition:none}
+}
 </style>
+<script>
+if ('IntersectionObserver' in window &&
+    !matchMedia('(prefers-reduced-motion: reduce)').matches)
+  document.documentElement.className += ' anim';
+</script>
 </head>
 <body>
 
@@ -262,4 +316,42 @@ footer p{margin:0 0 5px}
 
 
 
+
+<script>
+/* 화면에 들어오면 한 번만 올라오며 나타난다.
+   JS·IO가 없거나 모션을 줄이는 설정이면 .anim 이 안 붙어 전부 그냥 보인다. */
+(function () {
+  if (!document.documentElement.classList.contains('anim')) return;
+
+  var GROUPS = [
+    ['.hero .lockup, .hero .badge, .hero h1, .hero .lead, .hero .cta, .hero .fine', 70],
+    ['.stage .phone', 130],
+    ['.stage-cap', 0],
+    ['.sec-head', 0],
+    ['.grid3 > *', 90],
+    ['.proof-grid > *', 110],
+    ['.why .label, .why h2, .why p', 55],
+    ['.closing h2, .closing .cta, .closing .fine', 70],
+    ['footer .wrap > *', 50]
+  ];
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+  GROUPS.forEach(function (g) {
+    var els = document.querySelectorAll(g[0]);
+    Array.prototype.forEach.call(els, function (el, i) {
+      // .stage .phone 은 자기 전용 전환을 쓰므로 .rv 를 붙이지 않는다
+      if (!el.matches('.stage .phone')) el.classList.add('rv');
+      if (g[1]) el.style.transitionDelay = (i * g[1]) + 'ms';
+      io.observe(el);
+    });
+  });
+})();
+</script>
 </body></html>
