@@ -150,7 +150,9 @@ h1{margin:18px auto 0;font-size:32px;max-width:11.5em}
    덱이 이 상자보다 넓어져서, 삐져나온 24px 이 덮이지 않고 그대로 드러난다. */
 .deck-wrap{
   position:relative;--fade-solid:4%;--fade-end:26%;
-  margin-inline:calc(50% - 50vw);
+  /* 화면 끝까지 흘리되 1368px 에서 멈춘다 — 그보다 넓으면 일곱 장까지 서서
+     다섯 장 무대가 흐트러진다. 1368 은 카드 다섯 자리(260×1.04×5)+숨이다. */
+  margin-inline:calc(50% - min(50vw, 684px));
 }
 .deck-wrap::after{
   content:"";position:absolute;inset:0;z-index:4;pointer-events:none;
@@ -560,6 +562,8 @@ if ('IntersectionObserver' in window &&
      옮기면 그 애니메이션이 끊겨 화면이 튄다(빠르게 튕길 때 특히). */
   function wrap() {
     if (!setW) return;
+    deck.style.scrollSnapType = ''; // 어떤 길로 끊겼든, 멎고 나면 스냅은 돌아와 있어야 한다
+
     // 창 크기가 바뀌면 카드 폭(vw 에 물려 있다)도 바뀐다. resize 이벤트를 놓쳐도
     // 되감기가 어긋나지 않게, 멎을 때마다 한 벌 폭을 다시 확인한다.
     var now = track.getBoundingClientRect().width / 3;
@@ -573,6 +577,7 @@ if ('IntersectionObserver' in window &&
   deck.addEventListener('scroll', function () {
     if (jumping) return;
     clearTimeout(settle);
+    plan(); // 자동 넘김도 여기서 미뤄진다 — 마지막 움직임 기준 2초 뒤
     // 트랙 끝에 닿기 직전이면 기다리지 않는다(길게 끌었을 때 막히지 않게)
     var x = deck.scrollLeft;
     if (x > setW * 2.1 || x < setW * 0.15) wrap();
@@ -581,6 +586,71 @@ if ('IntersectionObserver' in window &&
 
   var t;
   addEventListener('resize', function () { clearTimeout(t); t = setTimeout(measure, 150); });
+
+  /* 2초마다 한 장씩 자동으로 넘긴다.
+
+     자동이 손을 이기면 안 된다 — 손가락이 닿아 있는 동안은 쉬고, 어떤 스크롤이든
+     (손이든 자동이든) 완전히 멎고 나서 2초 뒤에 다음 장으로 간다. 다음 판 예약은
+     아래 scroll 리스너가 한다: 움직이는 동안 계속 미뤄지다가 마지막 이벤트 기준
+     2초 뒤에 넘어가므로, 체인이 따로 없어도 이어진다.
+
+     모션 줄이기에서는 아예 돌리지 않는다. 탭이 뒤로 가 있거나 덱이 화면 밖이면
+     그 판은 건너뛰고 다음 기회를 다시 잡는다 — 백그라운드에서 쌓였다가 돌아오는
+     순간 몰아서 넘어가는 것을 막는다. */
+  var auto, held = false, glide = 0;
+  var still = matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* 손으로 미는 것과 달리 자동은 서두를 이유가 없다 — 브라우저의 smooth 는
+     0.3초쯤에 휙 끝나서, 850ms 완급(easeInOutCubic)으로 직접 끈다.
+     끄는 동안 손이 닿거나(pointerdown→held) 휠이 돌면 즉시 놓는다.
+     한 판의 이동폭(+0.2벌)으로는 즉시 되감기 문턱(2.1벌)에 닿지 않고,
+     되감기 자체는 멎은 뒤 140ms 에 오므로 끄는 중에 좌표가 바뀔 일이 없다.
+
+     **끄는 동안은 스냅을 풀어야 한다.** mandatory 스냅 상자는 프로그램이 넣는
+     scrollLeft 를 그 자리에서 스냅 지점으로 양자화한다 — 중간 좌표가 다 카드
+     단위로 붙어서, 850ms 곡선이 통째로 점프 한 번이 됐다. 도착 좌표가 곧 스냅
+     지점이라 되돌리는 순간 튀지 않는다. */
+  function slide(dist) {
+    var from = deck.scrollLeft, t0 = performance.now(), D = 850;
+    cancelAnimationFrame(glide);
+    deck.style.scrollSnapType = 'none';
+    function done() { deck.style.scrollSnapType = ''; }
+    function step(t) {
+      if (held) { done(); return; }
+      var p = Math.min(1, (t - t0) / D);
+      var e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+      deck.scrollLeft = from + dist * e;
+      if (p < 1) glide = requestAnimationFrame(step);
+      else done();
+    }
+    glide = requestAnimationFrame(step);
+  }
+  deck.addEventListener('wheel', function () {
+    cancelAnimationFrame(glide);
+    deck.style.scrollSnapType = ''; // 끌다 만 채 풀린 스냅이 남지 않게
+  }, { passive: true });
+
+  function tick() {
+    if (held) return;
+    if (!document.hidden) {
+      var r = deck.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < innerHeight) {
+        slide(setW / originals.length);
+        return; // 이 스크롤이 멎으면 scroll 리스너가 다음 판을 예약한다
+      }
+    }
+    plan();
+  }
+  function plan() {
+    clearTimeout(auto);
+    if (still.matches) return;
+    auto = setTimeout(tick, 2000);
+  }
+  deck.addEventListener('pointerdown', function () { held = true; clearTimeout(auto); });
+  addEventListener('pointerup', function () { held = false; plan(); });
+  addEventListener('pointercancel', function () { held = false; plan(); });
+  addEventListener('visibilitychange', plan);
+  plan();
 
 })();
 </script>
