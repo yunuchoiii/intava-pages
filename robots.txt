@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yunuchoiii.github.io/intava-pages/sitemap.xml
