@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>인타바 — 폰을 내려놓고 운동하려고 만든 인터벌 타이머</title>
-<meta name="description" content="타바타·HIIT·서킷 트레이닝용 인터벌 타이머. 화면을 보지 않아도 소리와 진동이 구간을 알려주고, 운동이 끝나면 기록이 자동으로 남습니다. 광고 없음, 앱 내 구입 없음, 로그인 없음.">
+<meta name="description" content="폰은 내려놓고, 운동에 집중하세요. 인타바는 타바타·HIIT·서킷 트레이닝을 위한 무료 iOS 인터벌 타이머예요. 소리와 진동으로 구간을 알려주고 운동 기록은 자동으로 저장해요. 광고와 앱 내 구입, 로그인 없이 쓰세요.">
 <link rel="canonical" href="https://yunuchoiii.github.io/intava-pages/">
 <meta name="apple-itunes-app" content="app-id=6799622371">
 <link rel="icon" href="./icon.png">
@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="인타바">
 <meta property="og:type" content="website">
 <meta property="og:title" content="인타바 — 폰을 내려놓고 운동하려고 만든 인터벌 타이머">
-<meta property="og:description" content="결제 화면이 없고, 음악을 안 줄이고, 운동이 끝나면 알아서 기록됩니다.">
+<meta property="og:description" content="듣던 음악은 그대로, 운동 기록은 자동으로. 폰을 내려놓고 운동에 집중하도록 만든 무료 iOS 인터벌 타이머, 인타바.">
 <meta property="og:image" content="https://yunuchoiii.github.io/intava-pages/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -318,6 +318,41 @@ footer{border-top:1px solid var(--line);padding:32px 0 56px;color:var(--dim);fon
 .flinks{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0 0 16px;padding:0;list-style:none}
 footer p{margin:0 0 5px}
 
+/* ---- live activity · share card ---- */
+.steps{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:12px}
+.steps li{display:flex;gap:12px;color:var(--sub);font-size:15.5px;line-height:1.6;transition:color .35s ease}
+.steps li b{flex:none;width:22px;height:22px;margin-top:2px;border-radius:999px;border:1px solid var(--line);display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--dim);transition:background .35s ease,border-color .35s ease,color .35s ease}
+.steps li.on{color:var(--text)}
+.steps li.on b{background:var(--teal);border-color:var(--teal);color:#0B1B18}
+.mock-glow{position:relative}
+.mock-glow .glow{position:absolute;inset:-8% -22%;pointer-events:none;transition:opacity .6s ease}
+.glow-w{background:radial-gradient(50% 50% at 50% 50%, rgba(211,47,62,0.24), rgba(211,47,62,0) 70%)}
+.glow-r{background:radial-gradient(50% 50% at 50% 50%, rgba(18,137,124,0.28), rgba(18,137,124,0) 70%);opacity:0}
+.share-glow::before{content:"";position:absolute;inset:-8% -22%;pointer-events:none;
+  background:radial-gradient(40% 40% at 35% 40%, rgba(211,47,62,0.18), rgba(211,47,62,0) 70%),radial-gradient(45% 45% at 65% 62%, rgba(18,137,124,0.22), rgba(18,137,124,0) 70%)}
+.mock{position:relative;max-width:330px;margin:0 auto;padding:7px;border-radius:38px;background:#0C0C10;border:1px solid rgba(255,255,255,0.14);box-shadow:0 24px 60px rgba(0,0,0,0.55)}
+.proof .mock{max-width:330px}
+.mock .screen{position:relative;aspect-ratio:393/852;border-radius:31px;overflow:hidden;background:#0B0B0E;color:#FFFFFF;line-height:normal}
+.mock .ui{position:absolute;left:0;top:0;width:393px;height:852px;transform:scale(var(--k,.8));transform-origin:0 0}
+.mock .sbar{position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:6px 34px 0 50px;font-size:16.5px;font-weight:650}
+.scard{position:absolute;left:16.5px;top:40px;width:360px;height:640px;border-radius:20px;overflow:hidden;transform-origin:50% 50%}
+.scard img,.mock .shead img{max-width:none;border-radius:0}
+.scard img{width:360px;height:640px}
+.sdot{display:block;width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.25);transition:width .3s ease,background .3s ease}
+.sdot.on{width:18px;background:#F7F7F8}
+.ssheet{position:absolute;left:0;right:0;top:404px;height:448px;border-radius:30px 30px 0 0;background:#1F1F24;box-shadow:0 -20px 50px rgba(0,0,0,.45);transform:translateY(470px);z-index:20;padding:0 18px;color:#F7F7F8}
+.shead{display:flex;align-items:center;gap:12px;padding:18px 2px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.tgt{display:flex;flex-direction:column;align-items:center;gap:8px;width:72px;font-size:11.5px;font-weight:600;color:#C9CBD0}
+.tgt span{width:62px;height:62px;border-radius:17px;background:rgba(255,255,255,.1);display:grid;place-items:center}
+.act{height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid rgba(255,255,255,.07);font-size:16px;font-weight:600}
+.act:last-child{border-bottom:0}
+/* 좁은 화면에선 목업 뒤 번짐을 단 안쪽에 둔다 — 좌우로 22% 넘치면 가로 스크롤이 생긴다 */
+@media (max-width:719px){
+  .mock-glow .glow,.share-glow::before{inset:-8% 0}
+}
+@media (min-width:720px){
+  .feat-share .proof-grid{grid-template-columns:0.9fr 1fr}
+
 @media (min-width:720px){
   .hero{padding-top:88px}
   h1{font-size:46px}
@@ -368,11 +403,11 @@ if ('IntersectionObserver' in window &&
 <header class="hero">
   <div class="wrap">
     <img class="lockup" src="./lockup.png" alt="intava" width="1288" height="296">
-    <p class="badge" style="margin-bottom:0"><span class="bd"></span>광고 없음 · 앱 내 구입 없음 · 로그인 없음</p>
-    <h1>폰을 내려놓고 운동하려고 만든 인터벌 타이머</h1>
-    <p class="lead">결제 화면이 없고, 음악을 안 줄이고, 운동이 끝나면 알아서 기록됩니다.</p>
-    <div><a class="cta" href="https://apps.apple.com/kr/app/id6799622371">App Store에서 받기</a></div>
-    <p class="fine">iOS · 한국어 · 영어 · 일본어 · 중국어</p>
+    <p class="badge" style="margin-bottom:0"><span class="bd"></span>무료 · 광고와 앱 내 구입 없이</p>
+    <h1>폰은 내려놓고,<br>운동에 집중하세요.</h1>
+    <p class="lead">운동할 때와 쉴 때를 소리와 진동으로 알려주는 인터벌 타이머. 듣던 음악은 그대로, 운동 기록은 자동으로.</p>
+    <div><a class="cta" href="https://apps.apple.com/kr/app/id6799622371">App Store에서 무료로 받기</a></div>
+    <p class="fine">iOS용 · 로그인 없이 시작 · 한국어 외 3개 언어 지원</p>
 
     <div class="stage">
       <div class="deck-wrap">
@@ -401,39 +436,107 @@ if ('IntersectionObserver' in window &&
       </div>
       </div>
       </div>
-      <p class="stage-cap">구간이 바뀌면 <strong>화면 전체 색이 바뀝니다.</strong><br>소리와 진동도 함께 울리니, 화면은 안 봐도 됩니다.</p>
+      <p class="stage-cap">운동에서 휴식으로 넘어가면 <strong>화면 색도 함께 바뀌어요.</strong><br>화면을 보지 않을 땐 소리와 진동이 알려줘요.</p>
     </div>
   </div>
 </header>
 
 <section class="features wrap">
   <div class="sec-head">
-    <h2>주머니 속에서도 정확하게</h2>
+    <h2>폰은 주머니에 있어도.</h2>
   </div>
   <div class="grid3">
     <article class="feat">
       <p class="no">01</p>
-      <h3>화면을 안 봐도 됩니다</h3>
-      <p>운동인지 휴식인지 색으로 구분됩니다. 소리와 진동이 구간을 알려주고, 앱을 완전히 종료해도 알림은 그대로 울립니다.</p>
+      <h3>다음 구간은 소리로.</h3>
+      <p>화면에선 색으로, 주머니에선 소리와 진동으로 구간을 알려줘요. 앱을 완전히 종료해도 알림은 울려요.</p>
     </article>
     <article class="feat">
       <p class="no">02</p>
-      <h3>음악을 줄이지 않습니다</h3>
-      <p>듣던 노래를 멈추거나 작게 만들지 않습니다. 알림음은 음악과 겹치지 않는 대역으로 따로 만들어 그 위에 얹습니다.</p>
+      <h3>알림이 울려도, 음악은 그대로.</h3>
+      <p>알림이 울려도 듣던 음악은 멈추거나 작아지지 않아요. 음악과 구분해 들을 수 있도록 알림음을 따로 만들었어요. 알림음이 더 또렷했으면 할 땐, 설정에서 알림음이 나오는 동안만 음악을 잠깐 줄일 수도 있어요.</p>
     </article>
     <article class="feat">
       <p class="no">03</p>
-      <h3>기록하려고 누를 게 없습니다</h3>
-      <p>운동을 끝내면 총 시간과 순수 운동 시간, 완료한 세트가 달력에 알아서 남습니다. 따로 입력하는 화면이 없습니다.</p>
+      <h3>운동을 마치면 기록도 끝.</h3>
+      <p>운동을 마치면 총 시간과 실제로 운동한 시간, 완료한 세트가 달력에 자동으로 저장돼요. 따로 입력하거나 저장 버튼을 누를 필요 없어요.</p>
     </article>
   </div>
 </section>
 
+<section class="proof feat-live wrap" id="live" aria-labelledby="liveTitle">
+  <div class="proof-grid">
+    <div>
+      <h2 id="liveTitle">앱을 열지 않아도.<br>한눈에.</h2>
+      <p class="desc">남은 시간은 잠금 화면과 다이내믹 아일랜드에서 확인하세요. 세트 사이마다 앱으로 돌아갈 필요 없어요.</p>
+      <ol class="steps" id="liveSteps">
+        <li><b>1</b><span>폰을 잠그면 잠금 화면 카드에서 타이머가 이어져요.</span></li>
+        <li><b>2</b><span>운동 구간이 끝나면 휴식으로 넘어가요. 카드도 청록색으로 바뀌어 쉴 때를 알려줘요.</span></li>
+        <li><b>3</b><span>잠금을 풀면 다이내믹 아일랜드에 링과 남은 시간이 보여요. 다른 앱과 함께 표시될 땐 링만 남아요.</span></li>
+        <li><b>4</b><span>다이내믹 아일랜드를 길게 누르면 잠금 화면에서 보던 카드 모양으로 펼쳐져요.</span></li>
+      </ol>
+    </div>
+    <div class="mock-glow">
+      <i class="glow glow-w" id="lvGlowW" aria-hidden="true"></i><i class="glow glow-r" id="lvGlowR" aria-hidden="true"></i>
+      <figure class="phone mock" role="img" aria-label="잠금화면 라이브 액티비티 카드에서 운동 시간이 줄어들다 휴식으로 넘어가며 청록으로 바뀌고, 잠금을 풀면 다이내믹 아일랜드에 같은 타이머가 이어지는 모습">
+        <div class="screen"><div class="ui" id="lvUi">
+          <div style="position:absolute;inset:-40px;background:url('./lock.webp') center/cover;filter:blur(24px) brightness(.36) saturate(.5)"></div>
+          <div style="position:absolute;top:118px;left:30px;right:30px;display:grid;grid-template-columns:repeat(4,1fr);gap:34px 24px"><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i><i style="display:block;aspect-ratio:1;border-radius:17px;background:rgba(255,255,255,.1)"></i></div>
+          <div style="position:absolute;left:14px;right:14px;bottom:18px;height:94px;border-radius:36px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-around;padding:0 12px"><i style="display:block;width:62px;height:62px;border-radius:17px;background:rgba(255,255,255,.12)"></i><i style="display:block;width:62px;height:62px;border-radius:17px;background:rgba(255,255,255,.12)"></i><i style="display:block;width:62px;height:62px;border-radius:17px;background:rgba(255,255,255,.12)"></i><i style="display:block;width:62px;height:62px;border-radius:17px;background:rgba(255,255,255,.12)"></i></div>
+          <div id="lvHomeBar" class="sbar" style="opacity:0"><span>6:42</span><span style="width:25px;height:12px;border-radius:4px;border:1.5px solid rgba(255,255,255,.8);padding:1.5px;display:flex"><b style="flex:1;border-radius:2px;background:#FFFFFF"></b></span></div>
+          <div id="lvLockW" style="position:absolute;inset:0">
+            <div id="lvLock" style="position:absolute;inset:0;background:url('./lock.webp') center/cover;opacity:0"></div>
+            <div id="laCard" style="position:absolute;top:446px;left:12px;width:369px;border-radius:28px;padding:18px 20px 16px;opacity:0;background:radial-gradient(circle at 46px 46px,rgba(255,77,94,.3) 0%,rgba(255,77,94,.1) 70px,rgba(255,77,94,0) 230px),#000000;box-shadow:0 0 0 1px rgba(255,255,255,.06)">
+          <div style="display:flex;align-items:center;gap:14px">
+            <svg width="52" height="52" viewBox="0 0 52 52" style="flex:none;transform:scaleX(-1) rotate(-90deg)"><circle class="lc-trk" cx="26" cy="26" r="21" fill="none" stroke="rgba(211,47,62,.34)" stroke-width="6"/><circle class="lc-arc" cx="26" cy="26" r="21" fill="none" stroke="#FF4D5E" stroke-width="6" stroke-linecap="round" stroke-dasharray="131.9" stroke-dashoffset="105"/></svg>
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span class="lc-lbl" style="font-size:12px;font-weight:750;letter-spacing:.16em;color:#FF4D5E">운동</span><span style="font-size:16.5px;font-weight:720;letter-spacing:-.02em">스쿼트</span><span style="font-size:12.3px;font-weight:600;color:rgba(255,255,255,.6)">1 / 4 세트 · 1 / 3 라운드</span></div>
+            <span class="lc-time" style="flex:none;font-size:34.5px;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:#FF4D5E">0:08</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:15px"><div style="flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.16);overflow:hidden"><i class="lc-bar" style="display:block;width:23%;height:100%;border-radius:3px;background:#FF4D5E"></i></div><span class="lc-seg" style="flex:none;font-size:12px;font-weight:650;color:rgba(255,255,255,.6);font-variant-numeric:tabular-nums">3 / 12 구간</span></div>
+            </div>
+          </div>
+          <div id="lvApp" style="position:absolute;inset:0;background:radial-gradient(120% 70% at 18% -8%,rgba(255,255,255,.2) 0%,rgba(255,255,255,0) 58%),linear-gradient(168deg,#DD5D68 0%,#D32F3E 52%,#98222D 100%)">
+            <div class="sbar"><span>6:41</span><span style="width:25px;height:12px;border-radius:4px;border:1.5px solid rgba(255,255,255,.8);padding:1.5px;display:flex"><b style="flex:1;border-radius:2px;background:#FFFFFF"></b></span></div>
+            <div style="position:absolute;top:88px;left:24px;right:24px;display:flex;align-items:center;justify-content:space-between">
+              <span style="width:47px;height:47px;border-radius:16px;background:rgba(255,255,255,.18);display:grid;place-items:center"><svg width="17" height="17" viewBox="0 0 18 18"><path d="M3 3l12 12M15 3L3 15" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+              <span style="font-size:15.5px;font-weight:600;opacity:.82">하체 집중</span>
+              <span style="width:47px;height:47px;border-radius:16px;background:rgba(255,255,255,.18);display:grid;place-items:center"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M13.5 3.5l3 3L7 16H4v-3z" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/></svg></span>
+            </div>
+            <div style="position:absolute;top:224px;left:44.5px;width:304px;height:304px">
+              <div style="position:absolute;inset:15px;border-radius:50%;background:linear-gradient(168deg,rgba(255,255,255,.2),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.18)"></div>
+              <svg width="304" height="304" viewBox="0 0 304 304" style="position:absolute;inset:0;transform:rotate(-90deg)"><circle cx="152" cy="152" r="145" fill="none" stroke="rgba(0,0,0,.2)" stroke-width="14"/><circle id="apArc" cx="152" cy="152" r="145" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-dasharray="182 911" stroke-dashoffset="-729"/></svg>
+              <div style="position:absolute;top:84px;left:30px;right:30px;text-align:center;font-size:21px;font-weight:750">스쿼트 · 운동</div>
+              <div id="apClock" style="position:absolute;inset:0;display:grid;place-items:center;font-size:72px;font-weight:800;letter-spacing:-.045em;font-variant-numeric:tabular-nums;line-height:1">0:08</div>
+              <div style="position:absolute;bottom:86px;left:26px;right:26px;text-align:center;font-size:15px;font-weight:600;opacity:.86">1 / 4 세트 · 1 / 3 라운드</div>
+            </div>
+          </div>
+          <div id="lvOff" style="position:absolute;inset:0;background:#000000;opacity:0"></div>
+          <i style="position:absolute;left:50%;top:12px;width:124px;height:36px;margin-left:-62px;border-radius:18px;background:#000000"></i>
+          <div id="diBox" style="position:absolute;top:12px;left:50%;width:124px;height:36px;border-radius:18px;background:#000000;transform:translateX(-50%);overflow:hidden;opacity:0">
+            <div id="diC" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 14px 0 12px"><svg width="22" height="22" viewBox="0 0 22 22" style="transform:rotate(-90deg)"><circle class="di-trk" cx="11" cy="11" r="8.6" fill="none" stroke="rgba(211,47,62,.3)" stroke-width="3.2"/><circle class="di-arc" cx="11" cy="11" r="8.6" fill="none" stroke="#FF4D5E" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="54" stroke-dashoffset="43"/></svg><span id="diTime" style="font-size:15.5px;font-weight:750;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#FF4D5E">0:08</span></div>
+            <div id="diM" style="position:absolute;inset:0;display:flex;align-items:center;padding:0 14px;opacity:0"><span style="font-size:13px;font-weight:650;color:rgba(255,255,255,.62)">♫</span></div>
+            <div id="diE" style="position:absolute;top:0;left:50%;width:369px;margin-left:-184.5px;padding:18px 20px 16px;opacity:0">
+          <div style="display:flex;align-items:center;gap:14px">
+            <svg width="52" height="52" viewBox="0 0 52 52" style="flex:none;transform:scaleX(-1) rotate(-90deg)"><circle class="lc-trk" cx="26" cy="26" r="21" fill="none" stroke="rgba(211,47,62,.34)" stroke-width="6"/><circle class="lc-arc" cx="26" cy="26" r="21" fill="none" stroke="#FF4D5E" stroke-width="6" stroke-linecap="round" stroke-dasharray="131.9" stroke-dashoffset="105"/></svg>
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span class="lc-lbl" style="font-size:12px;font-weight:750;letter-spacing:.16em;color:#FF4D5E">운동</span><span style="font-size:16.5px;font-weight:720;letter-spacing:-.02em">스쿼트</span><span style="font-size:12.3px;font-weight:600;color:rgba(255,255,255,.6)">1 / 4 세트 · 1 / 3 라운드</span></div>
+            <span class="lc-time" style="flex:none;font-size:34.5px;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:#FF4D5E">0:08</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:15px"><div style="flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.16);overflow:hidden"><i class="lc-bar" style="display:block;width:23%;height:100%;border-radius:3px;background:#FF4D5E"></i></div><span class="lc-seg" style="flex:none;font-size:12px;font-weight:650;color:rgba(255,255,255,.6);font-variant-numeric:tabular-nums">3 / 12 구간</span></div>
+            </div>
+          </div>
+          <div id="diMin" style="position:absolute;top:12px;left:calc(50% + 82px);width:36px;height:36px;border-radius:50%;background:#000000;display:grid;place-items:center;opacity:0;transform:scale(0)"><svg width="22" height="22" viewBox="0 0 22 22" style="transform:rotate(-90deg)"><circle class="di-trk" cx="11" cy="11" r="8.6" fill="none" stroke="rgba(211,47,62,.3)" stroke-width="3.2"/><circle class="di-arc" cx="11" cy="11" r="8.6" fill="none" stroke="#FF4D5E" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="54" stroke-dashoffset="43"/></svg></div>
+        </div></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
 <section class="proof wrap">
   <div class="proof-grid">
     <div>
-      <h2>운동이 끝나면,<br>달력에 이미 남아 있습니다</h2>
-      <p class="desc">총 시간·순수 운동 시간·완료한 세트가 자동으로 기록됩니다. 운동한 날은 청록색 농도로 칠해집니다. 입력하는 화면이 없다는 게 증거입니다.</p>
+      <h2>오늘도 운동한 날.<br>달력에 남겨두었어요.</h2>
+      <p class="desc">총 시간과 실제로 운동한 시간, 완료한 세트까지 자동으로 기록돼요. 달력에는 운동한 날마다 청록색이 짙고 옅게 남아, 한 달의 운동을 돌아보기 좋아요.</p>
     </div>
     <div class="proof-glow">
       <figure class="phone">
@@ -443,33 +546,78 @@ if ('IntersectionObserver' in window &&
   </div>
 </section>
 
+<section class="proof feat-share wrap" id="share" aria-labelledby="shareTitle">
+  <div class="proof-grid">
+    <div class="share-text">
+      <h2 id="shareTitle">오늘 해낸 운동.<br>한 장에 담아.</h2>
+      <p class="desc">운동과 휴식 시간, 세트·라운드·종목 수를 카드 한 장에 담아요. 마지막에 고른 디자인은 다음에도 먼저 보여줘요.</p>
+      <ol class="steps" id="shareSteps">
+        <li><b>1</b><span>운동을 마친 화면에서 공유 카드를 열어보세요. 운동 기록에서 지난 운동을 골라도 돼요.</span></li>
+        <li><b>2</b><span>1080×1920 크기의 카드 다섯 가지를 옆으로 넘겨 골라보세요. 사진형 두 가지에는 앨범 사진이나 직접 찍은 사진을 넣을 수 있어요.</span></li>
+        <li><b>3</b><span>마음에 드는 카드를 골랐다면 공유하기를 누르세요. iOS 공유 시트에서 사진 앱에 저장하거나 다른 앱으로 보낼 수 있어요.</span></li>
+      </ol>
+    </div>
+    <div class="mock-glow share-glow">
+      <figure class="phone mock" role="img" aria-label="공유 카드 화면. 스토리 크기 카드 다섯 장을 옆으로 넘겨 고르고, 고른 카드를 iOS 공유 시트로 저장하거나 보내는 모습">
+        <div class="screen" style="background:#0A0A0D"><div class="ui" id="shUi">
+          <div class="sbar" style="z-index:30"><span>7:42</span><span style="width:25px;height:12px;border-radius:4px;border:1.5px solid rgba(255,255,255,.8);padding:1.5px;display:flex"><b style="flex:1;border-radius:2px;background:#FFFFFF"></b></span></div>
+          <i style="position:absolute;left:50%;top:13px;width:124px;height:36px;margin-left:-62px;border-radius:18px;background:#000000;z-index:31"></i>
+          <div id="shChrome" style="position:absolute;inset:0">
+            <div style="position:absolute;top:54px;left:0;right:0;height:44px;display:grid;place-items:center;font-size:16px;font-weight:700;letter-spacing:-.02em">공유 카드</div>
+            <div style="position:absolute;top:632px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:12px">
+              <span id="shName" style="font-size:15px;font-weight:700;letter-spacing:-.02em">기본 · 종목 목록</span>
+              <div style="display:flex;align-items:center;gap:6px"><i class="sdot"></i><i class="sdot"></i><i class="sdot"></i><i class="sdot"></i><i class="sdot"></i></div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;padding:16px 24px 30px;display:flex;gap:10px">
+              <div style="flex:1;height:56px;border-radius:18px;display:grid;place-items:center;font-size:16px;font-weight:700;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12)">닫기</div>
+              <div style="flex:1.6;height:56px;border-radius:18px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px;font-weight:750;background:#F7F7F8;color:#0A0A0D"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0A0A0D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="M7.5 7.5L12 3l4.5 4.5"/><path d="M5 12v6a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 19 18v-6"/></svg>공유하기</div>
+            </div>
+          </div>
+          <div class="scard"><img src="./card-base.webp" alt="기본 카드 — 종목별 시간 목록" width="360" height="640" loading="lazy"></div><div class="scard"><img src="./card-photo-stack.webp" alt="사진 카드 — 사진 위에 총 시간과 운동·휴식·세트 숫자" width="360" height="640" loading="lazy"></div><div class="scard"><img src="./card-photo-strip.webp" alt="사진 카드 — 사진 위에 운동·휴식 비율 막대" width="360" height="640" loading="lazy"></div><div class="scard"><img src="./card-ring.webp" alt="링 히어로 카드 — 큰 링 안에 총 시간" width="360" height="640" loading="lazy"></div><div class="scard"><img src="./card-poster.webp" alt="타이포 포스터 카드 — 큰 숫자로 총 시간" width="360" height="640" loading="lazy"></div>
+          <div id="shDim" style="position:absolute;inset:0;background:#000000;opacity:0;z-index:15"></div>
+          <div id="shSheet" class="ssheet">
+            <div class="shead">
+              <div style="width:34px;height:60px;flex:none;border-radius:6px;overflow:hidden"><img src="./card-poster.webp" alt="" width="34" height="60" style="width:34px;height:60px"></div>
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;line-height:1.3"><span style="font-size:15.5px;font-weight:700">인타바 공유 카드</span><span style="font-size:12.5px;font-weight:500;color:#9A9EA6">1080 × 1920 이미지</span></div>
+              <span style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;flex:none"><svg width="11" height="11" viewBox="0 0 18 18"><path d="M3 3l12 12M15 3L3 15" stroke="#B5B8BE" stroke-width="2.6" stroke-linecap="round"/></svg></span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:20px 4px 22px"><div class="tgt"><span><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F7F7F8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6.3 16.5a8 8 0 1 1 11.4 0"/><path d="M8.8 14a4.5 4.5 0 1 1 6.4 0"/><path d="M12 13.5L9.5 20h5z"/></svg></span>AirDrop</div><div class="tgt"><span><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F7F7F8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c4.7 0 8.5 3 8.5 6.8s-3.8 6.7-8.5 6.7c-.9 0-1.8-.1-2.6-.3L5 19l1-3.4C4.4 14.4 3.5 12.7 3.5 10.8 3.5 7 7.3 4 12 4z"/></svg></span>메시지</div><div class="tgt"><span><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F7F7F8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="M4.5 7l7.5 6 7.5-6"/></svg></span>메일</div><div class="tgt"><span><svg width="28" height="28" viewBox="0 0 24 24" fill="#F7F7F8"><circle cx="6" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="18" cy="12" r="1.8"/></svg></span>더 보기</div></div>
+            <div style="border-radius:14px;background:rgba(255,255,255,.07);overflow:hidden"><div class="act">이미지 저장<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F7F8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7.5 10.5L12 15l4.5-4.5"/><path d="M5 19h14"/></svg></div><div class="act">복사<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F7F8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8"/></svg></div><div class="act">파일에 저장<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F7F8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5A2 2 0 0 1 5.5 5.5h4l2 2.2h7a2 2 0 0 1 2 2v7.8a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/></svg></div></div>
+          </div>
+        </div></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
 <section class="why">
   <div class="wrap narrow">
     <p class="label">왜 만들었나</p>
-    <h2>쓰던 타이머가 구독제로 바뀌어서, 직접 만들었습니다</h2>
-    <p>세트 사이 30초를 재는 데 매달 돈을 내라는 게 이상했습니다.</p>
-    <p>인타바에는 결제 화면 자체가 없습니다. 잠긴 기능도, 광고도, 회원가입도 없습니다.</p>
-    <p class="key">서버를 쓰지 않습니다. 루틴도 운동 기록도 폰 안에만 있어서 제가 내는 유지비가 <em>0원</em>입니다. 그래서 나중에 과금으로 돌아설 이유가 생기지 않습니다.</p>
-    <p class="last">대신 데이터가 자동으로 옮겨가지는 않습니다. 기기를 바꿀 땐 내보내기·불러오기로 파일 하나를 옮기면 됩니다. 서버가 없다는 건 그런 뜻입니다.</p>
+    <h2>제가 쓰려고 만들었습니다.</h2>
+    <p>쓰던 타이머가 구독제로 바뀌었어요. 세트 사이 30초를 재려고 매달 돈을 내기는 아까워서, 직접 만들었습니다.</p>
+    <p>그렇게 혼자 만든 인타바는 무료예요. 광고나 앱 내 구입이 없고, 모든 기능을 로그인 없이 쓸 수 있어요.</p>
+    <p class="key">루틴과 운동 기록은 폰 안에만 저장해요. 서버를 쓰지 않아 유지비는 <em>0원</em>입니다. 유지비 때문에 유료로 바꿀 부담은 없어요.</p>
+    <p class="last">다만 기기를 바꿀 때 데이터가 자동으로 옮겨지지는 않아요. 쓰던 폰에서 파일로 내보낸 뒤, 새 폰에서 불러와야 해요.</p>
   </div>
 </section>
 
 <section class="closing">
   <div class="wrap">
-    <h2>세트 사이 30초, 이제 폰은 주머니에</h2>
-    <div><a class="cta" href="https://apps.apple.com/kr/app/id6799622371">App Store에서 받기</a></div>
-    <p class="fine">광고 없음 · 앱 내 구입 없음 · 로그인 없음</p>
+    <h2>다음 세트까지.<br>잠깐 숨 돌리세요.</h2>
+    <div><a class="cta" href="https://apps.apple.com/kr/app/id6799622371">App Store에서 무료로 받기</a></div>
+    <p class="fine">광고와 앱 내 구입 없이 무료. 로그인도 필요 없어요.</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
     <ul class="flinks">
-      <li><a href="./support.html">지원 · 자주 묻는 것</a></li>
+      <li><a href="./support.html">도움말 · 자주 묻는 질문</a></li>
       <li><a href="./privacy.html">개인정보 처리방침</a></li>
-      <li><a href="mailto:chltjdnjs529@gmail.com">문의</a></li>
+      <li><a href="mailto:chltjdnjs529@gmail.com">개발자에게 문의</a></li>
     </ul>
-    <p>한국어 · 영어 · 일본어 · 중국어 지원</p>
+    <p>한국어 · 영어 · 일본어 · 중국어, 4개 언어 지원</p>
     <p>© 2026 Seowon Choi</p>
   </div>
 </footer>
@@ -652,6 +800,113 @@ if ('IntersectionObserver' in window &&
   addEventListener('visibilitychange', plan);
   plan();
 
+})();
+</script>
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var clamp=function(x){return Math.max(0,Math.min(1,x))};
+  var seg=function(t,a,b){return clamp((t-a)/(b-a))};
+  var ease=function(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+  var lerp=function(a,b,t){return a+(b-a)*t};
+  var fmt=function(s){s=Math.max(0,Math.ceil(s-0.001));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+  var $=function(id){return document.getElementById(id)};
+  var $$=function(sel,el){return Array.prototype.slice.call((el||document).querySelectorAll(sel))};
+  var RC=2*Math.PI*145;
+
+  // 폰 목업 크기 맞추기
+  function fit(){$$('.mock .screen').forEach(function(sc){var ui=sc.querySelector('.ui');if(ui)ui.style.setProperty('--k',(sc.clientWidth/393).toFixed(4))})}
+  fit();window.addEventListener('resize',fit);
+
+  function steps(list,i){$$('li',list).forEach(function(li,k){li.classList.toggle('on',k===i)})}
+
+  // ---- 라이브 액티비티 ----
+  var L={ui:$('lvUi'),app:$('lvApp'),off:$('lvOff'),lock:$('lvLock'),lockW:$('lvLockW'),home:$('lvHomeBar'),card:$('laCard'),apArc:$('apArc'),apClock:$('apClock'),
+    box:$('diBox'),c:$('diC'),m:$('diM'),e:$('diE'),min:$('diMin'),time:$('diTime'),gw:$('lvGlowW'),gr:$('lvGlowR'),steps:$('liveSteps'),
+    arcs:$$('#live .lc-arc'),trks:$$('#live .lc-trk'),times:$$('#live .lc-time'),lbls:$$('#live .lc-lbl'),bars:$$('#live .lc-bar'),segs:$$('#live .lc-seg'),
+    darcs:$$('#live .di-arc'),dtrks:$$('#live .di-trk'),rest:null};
+  var LIVE_LEN=14.4;
+  function live(T,still){
+    var rest=T>=4,rem=rest?20-2*(T-4):8-2*T,frac=rest?rem/20:rem/40,tm=fmt(rem);
+    if(L.rest!==rest){L.rest=rest;
+      var col=rest?'#3FD3C0':'#FF4D5E',trk=rest?'rgba(18,137,124,.34)':'rgba(211,47,62,.34)',g=rest?'63,211,192':'255,77,94';
+      L.arcs.forEach(function(a){a.setAttribute('stroke',col)});L.trks.forEach(function(a){a.setAttribute('stroke',trk)});
+      L.darcs.forEach(function(a){a.setAttribute('stroke',col)});L.dtrks.forEach(function(a){a.setAttribute('stroke',rest?'rgba(18,137,124,.3)':'rgba(211,47,62,.3)')});
+      L.times.forEach(function(el){el.style.color=col});L.lbls.forEach(function(el){el.style.color=col;el.textContent=rest?'휴식':'운동'});
+      L.bars.forEach(function(el){el.style.background=col});L.segs.forEach(function(el){el.textContent=(rest?4:3)+' / 12 구간'});
+      L.time.style.color=col;
+      L.card.style.background='radial-gradient(circle at 46px 46px,rgba('+g+',.3) 0%,rgba('+g+',.1) 70px,rgba('+g+',0) 230px),#000000';
+      L.gw.style.opacity=rest?'0':'1';L.gr.style.opacity=rest?'1':'0';
+    }
+    L.arcs.forEach(function(a){a.setAttribute('stroke-dashoffset',(131.9*(1-frac)).toFixed(2))});
+    L.times.forEach(function(el){el.textContent=tm});
+    var sp=rest?(3+(1-rem/20))/12:(2+(1-rem/40))/12;L.bars.forEach(function(el){el.style.width=(sp*100).toFixed(1)+'%'});
+    L.darcs.forEach(function(a){a.setAttribute('stroke-dashoffset',(54*(1-frac)).toFixed(2))});L.time.textContent=tm;
+    L.apArc.setAttribute('stroke-dasharray',(frac*RC).toFixed(1)+' '+RC.toFixed(1));L.apArc.setAttribute('stroke-dashoffset',(-(1-frac)*RC).toFixed(1));L.apClock.textContent=tm;
+    // 1. 잠금
+    var locked=T>=1.15;
+    L.off.style.opacity=(locked?1-seg(T,1.15,1.5):seg(T,1,1.15)).toFixed(3);
+    L.app.style.opacity=locked?'0':'1';L.lock.style.opacity=locked?'1':'0';
+    var la=ease(seg(T,1.5,1.9));L.card.style.opacity=la.toFixed(3);L.card.style.transform='translateY('+(36*(1-la)).toFixed(1)+'px)';
+    // 4. 잠금 해제 → 다이내믹 아일랜드
+    var un=ease(seg(T,6.5,7.1));L.lockW.style.transform='translateY('+(-880*un).toFixed(1)+'px)';L.home.style.opacity=un.toFixed(3);
+    var d0=ease(seg(T,7,7.4)),ex=ease(seg(T,8.8,9.2))*(1-ease(seg(T,10.3,10.7))),mm=ease(seg(T,11.3,11.6))*(1-ease(seg(T,12.8,13.1)));
+    var w=lerp(lerp(124,183,d0),150,mm),h=36,r=18;
+    if(ex>0){w=lerp(183,369,ex);h=lerp(36,118,ex);r=lerp(18,40,ex)}
+    L.box.style.width=w.toFixed(1)+'px';L.box.style.height=h.toFixed(1)+'px';L.box.style.borderRadius=r.toFixed(1)+'px';
+    L.box.style.opacity=T>=6.95?'1':'0';
+    L.c.style.opacity=(d0*(1-mm)*(1-seg(ex,0,.35))).toFixed(3);L.m.style.opacity=mm.toFixed(3);
+    L.min.style.opacity=mm.toFixed(3);L.min.style.transform='scale('+mm.toFixed(3)+')';
+    L.e.style.opacity=seg(ex,.45,1).toFixed(3);
+    L.ui.style.opacity=still?'1':Math.min(seg(T,0,.35),1-seg(T,13.9,14.3)).toFixed(3);
+    if(!still)steps(L.steps,T<4?0:T<6.5?1:(T>=8.8&&T<10.3)?3:2);
+  }
+
+  // ---- 공유 카드 ----
+  var NAMES=['기본 · 종목 목록','사진 · 숫자 스택','사진 · 비율 막대','링 히어로','타이포 포스터'];
+  var S={ui:$('shUi'),cards:$$('#share .scard'),chrome:$('shChrome'),name:$('shName'),dots:$$('#share .sdot'),dim:$('shDim'),sheet:$('shSheet'),steps:$('shareSteps'),idx:-1};
+  var SHARE_LEN=12;
+  function share(T,still){
+    var a=0;for(var k=0;k<4;k++)a+=ease(seg(T,.8+1.3*k,1.3+1.3*k));
+    var pk=ease(seg(T,5.6,6.2)),sh=ease(seg(T,6.9,7.5));
+    S.cards.forEach(function(el,i){
+      var off=i-a,ao=Math.min(Math.abs(off),1.6),near=Math.min(ao,1),chosen=i===4;
+      var s=.8-.12*near,tx=off*(300+160*pk),ty=0,o=1-.6*near;
+      if(chosen){s=lerp(s,.88,pk);ty=-14*pk;s=lerp(s,.53,sh);ty=lerp(ty,-122,sh)}else o*=1-pk;
+      el.style.transform='translate('+tx.toFixed(1)+'px,'+ty.toFixed(1)+'px) scale('+s.toFixed(4)+')';
+      el.style.opacity=(Math.abs(off)>2.2?0:o).toFixed(3);
+      el.style.zIndex=chosen&&sh>0?'16':String(10-Math.round(ao*4));
+      el.style.boxShadow=near<.5?'0 '+(24+20*pk).toFixed(0)+'px '+(60+40*pk).toFixed(0)+'px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,'+(.08+.1*pk).toFixed(2)+')':'none';
+    });
+    var ci=Math.round(a);
+    if(S.idx!==ci){S.idx=ci;S.name.textContent=NAMES[ci];S.dots.forEach(function(d,k){d.classList.toggle('on',k===ci)})}
+    S.chrome.style.opacity=((1-.7*pk)*(1-sh)).toFixed(3);
+    S.dim.style.opacity=(.3*sh).toFixed(3);
+    S.sheet.style.transform='translateY('+(470*(1-sh)).toFixed(1)+'px)';
+    S.ui.style.opacity=still?'1':Math.min(seg(T,0,.35),1-seg(T,11.3,11.8)).toFixed(3);
+    if(!still)steps(S.steps,T<.8?0:T<6.9?1:2);
+  }
+
+  // 화면에 보일 때만 재생. 움직임 줄이기: 애니메이션 없이 마지막 모습
+  var scenes=[{el:$('live'),fn:live,len:LIVE_LEN,still:9.8,t:0,vis:false},{el:$('share'),fn:share,len:SHARE_LEN,still:10,t:0,vis:false}];
+  function still(){scenes.forEach(function(s){s.fn(s.still,true);$$('.steps li',s.el).forEach(function(li){li.classList.remove('on')})})}
+  var last=0,raf=0;
+  function tick(now){
+    var dt=last?Math.min(.1,(now-last)/1000):0;last=now;
+    scenes.forEach(function(s){if(s.vis&&!document.hidden){s.t=(s.t+dt)%s.len;s.fn(s.t,false)}});
+    raf=requestAnimationFrame(tick);
+  }
+  function start(){
+    if(reduce.matches){cancelAnimationFrame(raf);raf=0;still();return}
+    scenes.forEach(function(s){s.fn(s.t,false)});
+    if(!raf){last=0;raf=requestAnimationFrame(tick)}
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){scenes.forEach(function(s){if(s.el===e.target)s.vis=e.isIntersecting})})},{threshold:.25});
+    scenes.forEach(function(s){io.observe(s.el)});
+  }else scenes.forEach(function(s){s.vis=true});
+  if(reduce.addEventListener)reduce.addEventListener('change',start);
+  start();
 })();
 </script>
 </body></html>
