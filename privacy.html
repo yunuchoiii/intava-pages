@@ -27,36 +27,54 @@
 <body>
 
 <h1>인타바 개인정보 처리방침</h1>
-<p class="updated">최종 수정일: 2026년 11월 17일</p>
-<p class="lead">인타바(intava)는 개인정보를 수집하지 않습니다.</p>
+<p class="updated">최종 수정일: 2026년 11월 24일</p>
+<p class="lead">인타바는 로그인하지 않으면 개인정보를 수집하지 않습니다. 로그인은 선택입니다.</p>
 
 <h2>수집하는 정보</h2>
-<p><strong>개인정보는 없습니다.</strong> 이 앱은 계정을 만들지 않으며, 이름·이메일·전화번호·위치·연락처를 비롯한 어떤 개인정보도 요구하거나 수집하지 않습니다.</p>
-<p>다만 몇 명이 앱을 쓰는지 알기 위해, 누가 보냈는지 알 수 없는 사용 통계를 하루 한 번 보냅니다(아래 「사용 통계」).</p>
+<p>로그인하지 않으면 개인정보를 수집하지 않습니다. 이름·전화번호·위치·연락처는 로그인 여부와 관계없이 요구하지 않습니다.</p>
+<p>설정에서 Apple 또는 Google로 로그인한 경우에만, 기기 사이에 루틴과 기록을 맞추기 위해 아래 「로그인과 클라우드 동기화」의 정보를 서버에 둡니다.</p>
+<p>그와 별개로, 몇 명이 앱을 쓰는지 알기 위해 누가 보냈는지 알 수 없는 사용 통계를 하루 한 번 보냅니다(아래 「사용 통계」).</p>
 
 <h2>앱이 저장하는 것</h2>
-<p>다음은 모두 <strong>사용자의 기기 안에만</strong> 저장되며, 개발자를 포함한 누구에게도 전송되지 않습니다.</p>
+<p>다음은 사용자의 기기 안에 저장됩니다. 로그인하지 않으면 기기 밖으로 나가지 않습니다.</p>
 <ul>
-  <li>사용자가 만든 루틴과 타이머(이름, 종목, 시간, 세트·라운드)</li>
-  <li>운동 기록(언제 무엇을 얼마나 했는지)</li>
-  <li>앱 설정(소리, 진동, 알림, 볼륨, 화면 켜둠, 정렬 기준, 잠금화면 타이머, 건강 앱 기록)</li>
+  <li>사용자가 만든 루틴과 타이머 (이름, 종목, 시간, 세트·라운드)</li>
+  <li>운동 기록 (언제 무엇을 얼마나 했는지)</li>
+  <li>앱 설정 (소리, 진동, 알림, 볼륨, 화면 켜둠, 정렬 기준, 잠금화면 타이머, 건강 앱 기록)</li>
 </ul>
-<p>앱을 삭제하면 이 데이터도 기기에서 함께 사라집니다. 앱은 이 데이터의 사본을 어디에도 두지 않으므로, 삭제한 데이터는 복구할 수 없습니다.</p>
+
+<h2>데이터의 수명</h2>
+<p>로그인하지 않았다면, 앱을 삭제할 때 이 데이터도 기기에서 함께 사라지고 복구할 수 없습니다.</p>
+<p>로그인했다면 서버의 사본은 계정을 삭제할 때까지 남습니다(아래 「동기화 데이터의 보관과 삭제」).</p>
 
 <h2>네트워크 통신</h2>
-<p>아래 「사용 통계」를 보낼 때만 인터넷에 연결합니다. 그 밖의 기능은 모두 기기 안에서 동작하며, 광고·추적 기술은 사용하지 않습니다.</p>
+<p>「사용 통계」를 보낼 때와, 로그인한 경우 동기화할 때 인터넷에 연결합니다. 그 밖의 기능은 모두 기기 안에서 동작하며, 광고·추적 기술은 사용하지 않습니다.</p>
 
 <h2>사용 통계</h2>
 <p>앱을 연 날과 운동을 끝낸 날, 하루 한 번씩 다음 값만 보냅니다: 그날 날짜, 열었음 또는 운동했음, 앱 버전, 기기 종류(iOS·안드로이드), 앱 언어.</p>
-<p>설치 ID·기기 ID·계정 같은 <strong>식별자는 만들지도 보내지도 않으며</strong>, 접속 IP도 저장하지 않습니다. 그래서 보낸 값으로 누가 보냈는지 알 수 없습니다. 루틴·운동 기록·건강 데이터는 보내지 않습니다.</p>
+<p>설치 ID·기기 ID·계정 같은 식별자는 만들지도 보내지도 않으며, 접속 IP도 저장하지 않습니다. 그래서 보낸 값으로 누가 보냈는지 알 수 없습니다. 루틴·운동 기록·건강 데이터는 보내지 않습니다.</p>
 <p>이 값은 하루 사용자 수를 세는 데만 쓰이며, Supabase(서버 제공 업체)에 저장됩니다. 설정의 「사용 통계 보내기」를 끄면 보내지 않습니다.</p>
 
-<h2>알림 권한</h2>
-<p>운동 중 구간이 바뀌는 시각을 알리기 위해 기기의 알림 권한을 사용합니다. 알림은 <strong>전부 기기 안에서 예약</strong>되며(로컬 알림), 원격 푸시 서버를 거치지 않습니다. 권한을 허용하지 않아도 앱은 정상 동작합니다.</p>
+<h2>로그인과 클라우드 동기화</h2>
+<p>설정에서 Apple 또는 Google로 로그인하면, 다른 기기에서도 같은 루틴과 기록을 쓰도록 다음을 서버에 둡니다. 로그인은 선택이며, 로그인하지 않아도 모든 기능을 쓸 수 있습니다.</p>
+<ul>
+  <li>계정 정보: Apple·Google이 알려 주는 계정 식별자와 이메일 주소(Apple의 「이메일 가리기」를 고르면 Apple이 만든 대리 주소)</li>
+  <li>동기화 데이터: 루틴과 타이머, 운동 기록, 기기 사이에 따라가는 설정(소리, 진동, 카운트다운 소리, 음악 줄이기, 정렬 기준)</li>
+  <li>보내지 않는 것: 건강 앱 데이터, 진행 중인 운동, 기기마다 다른 설정(알림, 건강 앱 기록, 잠금화면 타이머, 볼륨, 화면 켜둠, 사용 통계)</li>
+</ul>
 
-<h2>건강 앱 (HealthKit)</h2>
+<h2>동기화 데이터의 보관과 삭제</h2>
+<p>서버는 Supabase(미국 회사)가 운영하며, 데이터는 호주(시드니) 지역 서버에 저장됩니다. 로그인할 때와 이후 동기화할 때마다 인터넷으로 전송되고, 전송 구간은 암호화됩니다.</p>
+<p>서버의 데이터는 계정을 삭제할 때까지 보관합니다. 설정 → 계정 → 계정 삭제를 누르면 계정과 서버의 데이터가 바로 지워지며 되돌릴 수 없습니다. 이 기기에 있는 루틴과 기록은 지워지지 않습니다.</p>
+<p>로그아웃하면 아직 올라가지 않은 변경을 먼저 올린 뒤 이 기기의 루틴과 기록을 지웁니다. 계정에 저장된 데이터는 다시 로그인하면 돌아옵니다.</p>
+
+<h2>알림 권한</h2>
+<p>운동 중 구간이 바뀌는 시각을 알리기 위해 기기의 알림 권한을 사용합니다. 알림은 전부 기기 안에서 예약되며(로컬 알림), 원격 푸시 서버를 거치지 않습니다. 권한을 허용하지 않아도 앱은 정상 동작합니다.</p>
+
+<h2>건강 앱 (HealthKit · 헬스 커넥트)</h2>
 <p>설정에서 「건강 앱에 운동 기록」을 켠 경우에만, 운동을 마칠 때 그 운동을 Apple 건강 앱에 기록합니다. 기록되는 것은 루틴에서 고른 운동 종류, 시작·끝 시각, 운동 시간이며, 운동 중 iOS가 추정한 활동 에너지(칼로리)가 함께 붙을 수 있습니다. 이 기록은 피트니스 앱에도 보입니다.</p>
-<p>인타바는 <strong>건강 앱의 데이터를 읽지 않습니다.</strong> 건강 앱에 쓴 기록은 Apple 건강 앱 안에만 있으며, 개발자를 포함한 누구에게도 전송되지 않고, 광고나 분석에 쓰이지 않습니다. 권한은 언제든 iOS 설정 → 건강 → 데이터 접근 및 기기에서 끌 수 있습니다.</p>
+<p>인타바는 건강 앱의 데이터를 읽지 않습니다. 건강 앱에 쓴 기록은 Apple 건강 앱 안에만 있으며, 개발자를 포함한 누구에게도 전송되지 않고, 광고나 분석에 쓰이지 않습니다. 권한은 언제든 iOS 설정 → 건강 → 데이터 접근 및 기기에서 끌 수 있습니다.</p>
+<p>안드로이드에서는 같은 설정이 「헬스 커넥트에 운동 기록」입니다. 켠 경우에만 운동을 마칠 때 운동 종류와 시작·끝 시각을 헬스 커넥트에 운동 기록 한 건으로 남기며, 삼성 헬스 같은 앱에서도 볼 수 있습니다. 인타바는 헬스 커넥트의 데이터를 읽지 않고, 쓴 기록은 기기 안의 헬스 커넥트에만 있으며 누구에게도 전송되지 않습니다. 권한은 언제든 설정 → 헬스 커넥트 → 앱 권한에서 끌 수 있습니다.</p>
 <p>잠금화면 타이머가 켜져 있으면, 화면이 꺼진 동안에도 타이머를 이어 가기 위해 운동 중 iOS 운동 세션을 사용합니다. 「건강 앱에 운동 기록」이 꺼져 있으면 그 세션은 건강 앱에 남기지 않고 버립니다.</p>
 
 <h2>잠금화면 · 다이내믹 아일랜드</h2>
@@ -68,75 +86,97 @@
 <p>고른 사진과 만든 이미지는 공유 카드를 만드는 데만 쓰입니다. 작업하는 동안 앱의 임시 저장 공간에만 놓이며, 앱이 따로 보관하거나 어디로도 전송하지 않습니다.</p>
 
 <h2>내보내기 파일</h2>
-<p>설정의 「내보내기」는 루틴·운동 기록·설정을 담은 파일을 만들어 기기의 공유 시트로 넘깁니다. 그 파일을 어디에 저장하거나 누구에게 보낼지는 <strong>전적으로 사용자가 정합니다.</strong> 앱은 그 과정에 관여하지 않고, 파일의 사본을 보관하지 않습니다.</p>
+<p>설정의 「내보내기」는 루틴·운동 기록·설정을 담은 파일을 만들어 기기의 공유 시트로 넘깁니다. 그 파일을 어디에 저장하거나 누구에게 보낼지는 전적으로 사용자가 정합니다. 앱은 그 과정에 관여하지 않고, 파일의 사본을 보관하지 않습니다.</p>
 
 <h2>제3자 제공</h2>
-<p>개인정보를 수집하지 않으므로 제3자에게 제공하거나 판매할 개인정보도 없습니다. 익명 사용 통계는 판매하지 않습니다.</p>
+<p>개인정보를 판매하거나 광고에 쓰지 않습니다.</p>
+<p>로그인하면 Apple 또는 Google이 로그인 확인을 처리하고, 동기화 데이터는 Supabase(서버 제공 업체)에 저장됩니다. 이 두 경우 말고는 제3자에게 개인정보를 제공하지 않습니다.</p>
 
 <h2>아동</h2>
-<p>이 앱은 개인정보를 수집하지 않으므로 만 14세 미만 아동의 개인정보 또한 수집하지 않습니다.</p>
+<p>만 14세 미만 아동은 보호자의 동의 없이 로그인 기능을 쓰지 마세요. 로그인하지 않으면 아동의 개인정보도 수집하지 않습니다.</p>
 
 <h2>방침의 변경</h2>
-<p>내용이 바뀌면 이 페이지를 갱신하고 위의 최종 수정일을 고칩니다.</p>
+<p>내용이 바뀌면 이 문서를 갱신하고 위의 최종 수정일을 고칩니다.</p>
 
 <h2>문의</h2>
-<p>궁금한 점은 <a href="mailto:chltjdnjs529@gmail.com">chltjdnjs529@gmail.com</a> 으로 알려주세요.</p>
+<p>궁금한 점은 이 주소로 알려주세요. <a href="mailto:chltjdnjs529@gmail.com">chltjdnjs529@gmail.com</a></p>
 
 <hr>
 
 <h1>intava Privacy Policy</h1>
-<p class="updated">Last updated: November 17, 2026</p>
-<p class="lead">intava does not collect personal information.</p>
+<p class="updated">Last updated: November 24, 2026</p>
+<p class="lead">intava does not collect personal information unless you sign in. Signing in is optional.</p>
 
-<h2>Information we collect</h2>
-<p><strong>No personal information.</strong> The app has no accounts and never asks for or collects your name, email, phone number, location, contacts, or any other personal information.</p>
-<p>To know how many people use the app, it sends anonymous usage stats once a day that cannot be traced back to anyone (see "Usage stats" below).</p>
+<h2>What we collect</h2>
+<p>If you don't sign in, we collect no personal information. The app never asks for your name, phone number, location, or contacts, whether or not you sign in.</p>
+<p>Only if you sign in with Apple or Google in Settings, the information under "Sign-in and cloud sync" below is kept on a server so your routines and records stay in sync across devices.</p>
+<p>Separately, to know how many people use the app, it sends anonymous usage stats once a day that cannot be traced back to anyone (see "Usage stats" below).</p>
 
 <h2>What the app stores</h2>
-<p>All of the following is stored <strong>only on your device</strong> and is never transmitted to anyone, including the developer:</p>
+<p>The following is stored on your device. If you don't sign in, it never leaves your device:</p>
 <ul>
   <li>Routines and timers you create (names, exercises, durations, sets and rounds)</li>
   <li>Your workout log (when you trained and for how long)</li>
   <li>App settings (sound, vibration, notifications, volume, keep-awake, sort order, lock screen timer, Health logging)</li>
 </ul>
-<p>Deleting the app removes this data from your device. The app keeps no copy anywhere else, so deleted data cannot be recovered.</p>
+
+<h2>How long it lives</h2>
+<p>If you haven't signed in, deleting the app removes this data from your device and it cannot be recovered.</p>
+<p>If you have signed in, the server copy stays until you delete your account (see "Keeping and deleting synced data" below).</p>
 
 <h2>Network</h2>
-<p>The app connects to the internet only to send the usage stats described below. Everything else runs on your device, and no advertising or tracking technology is used.</p>
+<p>The app connects to the internet to send the usage stats described below and, if you've signed in, to sync. Everything else runs on your device, and no advertising or tracking technology is used.</p>
 
 <h2>Usage stats</h2>
 <p>On a day you open the app, and on a day you finish a workout, it sends only these values, once each: the date, whether it was an open or a workout, the app version, the platform (iOS or Android), and the app language.</p>
-<p><strong>No identifier is created or sent</strong> (no install ID, device ID, or account), and connection IP addresses are not stored. The values cannot be used to tell who sent them. Routines, workout logs, and health data are never sent.</p>
+<p>No identifier is created or sent — no install ID, device ID, or account — and connection IP addresses are not stored. The values cannot be used to tell who sent them. Routines, workout logs, and health data are never sent.</p>
 <p>These values are used only to count daily users and are stored with Supabase (our server provider). Turn off "Send usage stats" in Settings to stop sending them.</p>
 
-<h2>Notifications</h2>
-<p>The app uses your device's notification permission to tell you when an interval changes. All notifications are <strong>scheduled locally on the device</strong> and never pass through a remote push server. The app works normally if you decline the permission.</p>
+<h2>Sign-in and cloud sync</h2>
+<p>If you sign in with Apple or Google in Settings, the following is kept on a server so you can use the same routines and records on your other devices. Signing in is optional, and every feature works without it.</p>
+<ul>
+  <li>Account information: the account identifier and email address provided by Apple or Google (if you choose Apple's "Hide My Email", the relay address Apple creates)</li>
+  <li>Synced data: routines and timers, your workout log, and the settings that follow you across devices (sound, vibration, countdown beeps, music ducking, sort order)</li>
+  <li>Not sent: Health data, a workout in progress, and per-device settings (notifications, Health logging, lock screen timer, volume, keep-awake, usage stats)</li>
+</ul>
 
-<h2>Apple Health (HealthKit)</h2>
+<h2>Keeping and deleting synced data</h2>
+<p>The server is operated by Supabase (a US company), and the data is stored on servers in Australia (Sydney). It is sent over the internet when you sign in and each time the app syncs, and the connection is encrypted.</p>
+<p>Server data is kept until you delete your account. Settings &gt; Account &gt; Delete Account deletes your account and its server data right away, and this can't be undone. Routines and records on this device are not deleted.</p>
+<p>When you sign out, any unsynced changes are uploaded first, then routines and records are removed from this device. Data saved in your account comes back when you sign in again.</p>
+
+<h2>Notifications</h2>
+<p>The app uses your device's notification permission to tell you when an interval changes. All notifications are scheduled locally on the device and never pass through a remote push server. The app works normally if you decline the permission.</p>
+
+<h2>Apple Health (HealthKit) · Health Connect</h2>
 <p>Only if you turn on “Log workouts to Health” in Settings, the app records each workout in Apple Health when it ends. What it writes is the workout type you chose for the routine, the start and end time, and the workout duration; active energy (calories) estimated by iOS during the workout may be attached. These workouts also appear in the Fitness app.</p>
-<p>intava <strong>never reads data from Health.</strong> Workouts written to Health stay in Apple Health, are not sent to anyone (including the developer), and are not used for advertising or analytics. You can revoke access anytime in iOS Settings → Health → Data Access &amp; Devices.</p>
+<p>Intava never reads data from Health. Workouts written to Health stay in Apple Health, are not sent to anyone (including the developer), and are not used for advertising or analytics. You can revoke access anytime in iOS Settings → Health → Data Access &amp; Devices.</p>
+<p>On Android the same setting is “Log workouts to Health Connect.” Only when it is on, Intava saves one exercise session (the workout type and start and end times) to Health Connect when you finish, which apps like Samsung Health can show. Intava never reads Health Connect data; what it writes stays in Health Connect on your device and is not sent to anyone. You can turn off the permission anytime in Settings → Health Connect → App permissions.</p>
 <p>When the lock screen timer is on, the app runs an iOS workout session during a workout so the timer keeps going while the screen is off. If “Log workouts to Health” is off, that session is discarded and nothing is saved to Health.</p>
 
 <h2>Lock Screen &amp; Dynamic Island</h2>
 <p>During a workout, the remaining time and current interval are shown on the Lock Screen and in the Dynamic Island. This is created and updated entirely on the device and never passes through a remote push server.</p>
 
 <h2>Share image</h2>
-<p>“Share” on the finish screen turns the day's workout card into an image and hands it to the system share sheet. If you choose “Save Image,” iOS asks for permission to add it to Photos. The app never reads your photo library and keeps no copy of the image.</p>
+<p>“Share” on the finish screen turns the day's workout into a card image and hands it to the system share sheet. If you choose “Save Image,” iOS asks for permission to add it to Photos.</p>
+<p>Photo cards let you pick a background photo from Photos or take one with the camera. Picking from Photos uses the iOS photo picker, so the app receives only the one photo you choose and never accesses the rest of your library. Camera permission is requested only when you choose “Take photo.”</p>
+<p>The photo you pick and the image the app makes are used only to build the share card. They sit in the app's temporary storage while you work, and the app neither keeps them nor sends them anywhere.</p>
 
 <h2>Exported files</h2>
-<p>“Export” in Settings creates a file containing your routines, workout log, and settings, and hands it to your device's share sheet. <strong>Where that file goes is entirely your choice.</strong> The app takes no part in it and keeps no copy.</p>
+<p>“Export” in Settings creates a file containing your routines, workout log, and settings, and hands it to your device's share sheet. Where that file goes is entirely your choice. The app takes no part in it and keeps no copy.</p>
 
 <h2>Third parties</h2>
-<p>Because no personal information is collected, there is none to share with or sell to third parties. Anonymous usage stats are not sold.</p>
+<p>We don't sell personal information or use it for advertising.</p>
+<p>If you sign in, Apple or Google handles the sign-in check, and synced data is stored with Supabase (our server provider). Apart from these two cases, no personal information is shared with third parties.</p>
 
 <h2>Children</h2>
-<p>The app collects no personal information, and therefore collects none from children.</p>
+<p>Children under 14 should not use sign-in without a parent's consent. If you don't sign in, no personal information is collected from children either.</p>
 
 <h2>Changes</h2>
-<p>If this policy changes, this page is updated along with the date above.</p>
+<p>If this policy changes, this document is updated along with the date above.</p>
 
 <h2>Contact</h2>
-<p>Questions are welcome at <a href="mailto:chltjdnjs529@gmail.com">chltjdnjs529@gmail.com</a>.</p>
+<p>Questions are welcome at: <a href="mailto:chltjdnjs529@gmail.com">chltjdnjs529@gmail.com</a></p>
 
 </body>
 </html>
